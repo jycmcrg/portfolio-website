@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio - Macaraig</title>
+    <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* NAVIGATION */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #31868B;
+        color: #7ED8DE;
+        padding: 20px 20px;
+        z-index: 1000;
+    }
+
+    .logo span {
+        font-size: 20px;
+        font-weight: bold;
+        vertical-align: middle;
+    }
+
+    .nav-line {
+        width: 100%;
+        border: 1px solid white;
+        margin: 3px 300px;
+    }
+
+    .nav-lines {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-liness {
+        width: 100%;
+        border: 1px solid white;
+        margin: 3px 50px;
+    }
+
+    .nav-linesss {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+    nav ul li a {
+        color: black;   
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* HOME */
+    .home-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #B6D9E1;
+        position: relative;
+    }
+
+    .home-content {
+        max-width: 55%;
+        position: relative;
+    }
+
+    .home-content h2,
+    .home-content h1,
+    .home-content h3 {
+        margin: 0;
+    }
+
+    .home-content h2 {
+        font-size: 50px;
+        background: linear-gradient(135deg, #F30E0E, #B40C0C, #710B0B);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 100px 100px;
+        padding-bottom: 0;
+    }
+
+    .home-content h1 {
+        font-size: 90px;
+        background: linear-gradient(135deg, #5A9295, #256165);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 0px 170px;
+        font-family: Impact;
+    }
+
+    .home-content h3 {
+        font-size: 25px;
+        color: black;
+        padding: 0 170px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .home-content p {
+        font-size: 20px;
+        line-height: 1.4;
+        padding: 0px 50px;
+        padding-top: 10px;
+    }
+
+    .socialMedia {
+        padding-left: 120px;
+        padding-bottom: 23px;
+    }
+
+    .socialMedia a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 45px;
+        background: transparent;
+        border: 1px solid #004548;
+        border-radius: 20%;
+        font-size: 27px;
+        color: #1f3d3f;
+        margin-left: 10px;
+    }
+
+    .download-cv a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 46px;
+        background: transparent;
+        border: 1px solid #004548;
+        border-radius: 10px;
+        font-size: 25px;
+        color: #1f3d3f;
+        position: absolute;
+        bottom: 23px;
+        left: 370px;
+        z-index: 100;
+    }
+
+    .socialMedia a:hover, 
+    .download-cv a:hover {
+        background-color: #b6d9e1cd;
+        border-color: rgb(255, 255, 255);
+    }
+
+    .picture {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .picture img{
+        width: 640px;
+        height: 570px;
+        filter: drop-shadow(20px 7px 5px #4B9A9F)
+    }
+
+    /* ABOUT ME */
+    .about-section {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #4B9A9F;
+        position: relative;
+    }
+
+    .me {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding-top: 50px;
+    }
+
+    .me img{
+        width: 550px;
+        height: 580px;
+        filter: drop-shadow(20px 7px 5px #005A5F)
+    }
+
+    .about-content {
+        margin-left: auto;
+        width: 59%;
+    }   
+
+    .about-header {
+        font-size: 60px;
+        color: #A1CFDA;
+        font-family: Impact;
+        padding-top: 70px;
+    }
+
+    .about-header h1 {
+        margin: 0;
+        background: linear-gradient(-45deg, #5A9295, #256165, #004548);
+        -webkit-background-clip: text;
+        color: var(--bgcolor);
+        -webkit-text-stroke: 3px transparent;
+    }
+
+    .about-text {
+        font-size: 20px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: black;
+        line-height: 1.5;
+        margin-left: 50px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+    }    
+
+    .about-details {
+        flex: 1;
+        padding: 20px;
+        text-align: left;
+        padding-right: 10px;
+    }
+
+    /* ANOTHER SECTION OF ABOUT ME */
+    .aboutme-section {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #4B9A9F;
+        position: relative;
+        padding-top: 5px;
+        padding-bottom: 15px;
+    }
+
+    .fieldset {
+        border: 1px solid #000000;
+        padding: 10px;
+        margin: 0;
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .main-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-top: 20px;
+    }
+
+    .left-container,
+    .right-container {
+        flex: 1;
+        min-width: 300px;
+        margin: 10px;
+    }
+
+    .right-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    /* PROJECT SECTION */
+    .project-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #B6D9E1;
+        position: relative;
+    }
+
+    .project-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    .project-header {
+        font-size: 60px;
+        color: #A1CFDA;
+        font-family: Impact;
+        padding-top: 70px;
+    }
+
+    .project-header h1 {
+        margin: 0;
+        color: #004548;
+    }
+
+    .projects {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    .project-card {
+        background-color: #B2EBF2;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 360px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+
+    .project-card:hover {
+        transform: scale(1.05);
+    }
+
+    .project-card figure {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .project-card figure {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+ 
+    .project-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .project-card h3,
+    .project-card a {
+        margin: 0;
+    }
+
+    .project-card h3 {
+        font-size: 1.5em;
+        color: #333;
+        padding-top: 20px;
+    }
+
+    .project-card a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .project-card a {
+        color: #000000;
+        text-decoration: none;
+        padding-bottom: 70px;
+    }
+
+    .project-card a:hover {
+        text-decoration: underline;
+    }
+
+    .project-card p {
+        padding: 0 15px 15px;
+        color: #666;
+        font-size: 1em;
+    }
+
+    /* CONTACT */
+    .contact-section {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #4B9A9F;
+        position: relative;
+    }
+
+    .contact-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 30px;
+    }
+
+    .contact-header {
+        font-size: 60px;
+        color: #A1CFDA;
+        font-family: Impact;
+        padding-top: 70px;
+    }
+
+    .contact-header h1 {
+        margin: 0;
+        color: #004548;
+    }
+
+    /* CONTACT FORM */
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        width: 700px;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+        height: 150px;
+        background-color: rgba(255, 255, 255, 0.737);
+    }
+
+    .contact-form input{
+        background-color: rgba(255, 255, 255, 0.737);
+    }
+
+    .contact-form button {
+        padding: 10px;
+        background-color: #367571;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .contact-form button:hover {
+        background-color: #285e59;
+    }
+
+    /* CONTACT INFO */
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+        padding-right: 100px;
+        padding-top: 70px;
+        cursor: pointer;
+    }
+
+    .contact-info div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+    }
+
+    .contact-info img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contact-info a {
+        color: #000000;
+        text-decoration: none;
+    }
+
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+
+    /* FOOTER */
+    .footer {
+        flex-direction: column;
+        background-color: #005A5F;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.701);
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .footer p {
+        margin: 0;
+    }
+
+    .footer a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive design */
+    /* NAVIGATION */
+    @media (max-width: 480px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #31868B;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 1000;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-line {
+    margin: 3px 50px;
+  }
+
+  .logo {
+    padding: 0px 20px;
+  }
+}
+
+    /* HOME (MEDIA QUERY) */
+    @media (max-width: 768px) {
+    .home-section {
+        flex-direction: column-reverse; 
+    }
+
+    .picture {
+        position: static; 
+        padding-top: 70px;
+    }
+
+    .home-content {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .home-content h2,
+    .home-content h3 {
+        padding-right: 30px;
+    }
+
+    .home-content h1 {
+        font-size: 50px;
+        padding-right: 30px;
+    }
+    }
+
+    @media (max-width: 768px) {
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .download-cv {
+    text-align: center;
+  }
+}
+
+    /* ABOUT ME (MEDIA QUERY) */
+    @media (max-width: 768px) {
+    .about-section {
+        flex-direction: column; 
+    }
+
+    .me {
+        position: static; 
+        margin-bottom: 20px;
+    }
+
+    .about-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .about-header {
+        text-align: center;
+    }
+    }
+
+    /* cONTACT (MEDIA QUERY) */
+    @media (max-width: 768px) {
+   .contact-section {
+        flex-direction: column;
+    }
+
+   .contact-content {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+   .contact-form {
+        width: 100%;
+    }
+
+   .contact-form input, 
+   .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+   .contact-form button {
+        padding: 10px;
+        font-size: 16px;
+    }
+    }
+
+    @media (max-width: 480px) {
+        .contact-content {
+            width: 90%; 
+            margin: 10px auto; 
+        }
+
+    .contact-form input, 
+    .contact-form textarea {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .contact-form button {
+        padding: 5px;
+        font-size: 14px;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .contact-info {
+        text-align: center;
+        margin: 10px auto;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="logo">
+            <span>JYCMCRG</span>
+        </div>
+        <div class="nav-lines">
+            <hr class="nav-line">
+            <hr class="nav-line">
+            <hr class="nav-line">
+        </div>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#project">PROJECT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+        <div class="nav-linesss">
+            <hr class="nav-liness">
+            <hr class="nav-liness">
+            <hr class="nav-liness">
+        </div>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="home-section">
+        <div class="home-content">
+            <h2>Hi! I'm...</h2>
+            <h1>JOYCE M.</h2>
+            <h3>a BSIT STUDENT</h3>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hi, I'm Joyce S. Macaraig, an Aspiring Software Developer and Photographer.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A motivated and passionate <b>2nd Year Student</b> pursuing <b>Bachelor of Science in Information Technology (BSIT)</b> 
+                at <b>Dalubhasaan ng Lungsod ng Lucena (DLL).</b><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here you can explore some of my recent projects.
+            </p>
+            <div class="socialMedia">
+                <a href="https://www.facebook.com/joyce28macaraig" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                <a href="mailto:joyce28macaraig@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://github.com/jycmcrg" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a>
+                <div class="download-cv">
+                    <a href="CV.pdf">Download CV</a>
+                </div>
+            </div>
+        </div>
+        <!-- PICTURE -->
+        <div class="picture">
+            <img src="pic.png" alt="Joyce M.">
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="about-section">
+        <div class="me">
+            <img src="pics.png" alt="Joyce M.">
+        </div>
+        <div class="about-content">
+            <div class="about-header">
+                <h1>ABOUT ME</h1>
+                <div class="about-text">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hi, I'm JOYCE S. MACARAIG!<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm an aspiring Software Developer and Photographer currently studying for a Bachelor's degree in Information Technology. 
+                        I'm currently enrolled at Dalubhasaan ng Lungsod ng Lucena<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My coursework has included subjects such as Web Development, Software Engineering, and Database Management.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My enthusiasm for technology and creativity drives me to explore new programming languages and techniques to develop innovative solutions.
+                        In addition to my technical skills, I have interest in photography, capturing moments that tell a story.<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I'm passionate and I'm always eager to learn and grow.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="aboutme-section">
+        <div class="main-container">
+            <div class="left-container">
+                <fieldset class="fieldset">
+                    <legend><b>Education Background</b></legend>
+                    <ul>
+                        <li><b>COLLEGE: </b>Dalubhasaan ng Lungsod ng Lucena(DLL)
+                            <br><a href="https://web.facebook.com/DLLOnlinePage" target="_blank" style="color: #000000; text-decoration: underline;">Dalubhasaan ng Lungsod ng Lucena</a>
+                            <br>Brgy. Ilayang Iyam 
+                            <br><b>Academic Year:</b> 2022 - On - going</li>
+                        <br><li><b>SENIOR HIGH SCHOOL: </b>STI College Lucena
+                            <br><a href="https://web.facebook.com/lucena.sti.edu" target="_blank" style="color: #000000; text-decoration: underline;">STI College Lucena</a>
+                            <br>Mobile Application and Web Development (MAWD)
+                            <br>Brgy. IV 
+                            <br><b>Academic Year:</b> 2020 - 2022</li>
+                        <br><li><b>JUNIOR HIGH SCHOOL: </b>Lucena City National High School - Silangang Mayao Extension
+                            <br><a href="https://web.facebook.com/DedEdTayoLCNHSSMEx301501" target="_blank" style="color: #000000; text-decoration: underline;">LCNHS-Silangang Mayao Extension</a>
+                            <br>Brgy. Silangang Mayao, Lucena City
+                            <br><b>Academic Year:</b> 2016 - 2020</li>
+                        <br><li><b>ELEMENTARY: </b>Silangang Mayao Elementary School
+                            <br><a href="https://web.facebook.com/DepEdTayoSilangangMayaoES109726" target="_blank" style="color: #000000; text-decoration: underline;">Silangang Mayao Elementary School</a>
+                            <br>Brgy. Silangang Mayao, Lucena City
+                            <br><b>Academic Year:</b> 2009 - 2016 </li>
+                    </ul>
+                </fieldset>
+            </div>
+            <div class="right-container">
+                <fieldset class="fieldset">
+                    <legend><b>Technical Skills</b></legend>
+                        <li>Programming (Python)</li>
+                        <li>Web Development (HTML, CSS, JavaScript)</li>
+                        <li>Microsoft Office Suit (Microsoft Word, Power Point, Excel)</li>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend><b>Soft Skills</b></legend>
+                        <li>Communication</li>
+                        <li>Teamwork</li>
+                        <li>Problem-solving</li>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend><b>Language</b></legend>
+                        <li>English</li>
+                        <li>Tagalog</li>
+                </fieldset>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT SECTION -->
+    <section id="project" class="project-section">
+        <div class="project-content">
+            <div class="project-header">
+                <h1>PROJECT</h1>
+            </div>
+            <div class="projects">
+                <div class="project-card">
+                    <figure><img src="responsiveResume.png" alt="Responsive Resume"></figure>
+                    <h3>Responsive Resume</h3>
+                    <a href="https://jycmcrg.github.io/Online_Resume/" class="download" download>>>> Responsive Resume <<<</a>
+                    <p>It includes a Profile Picture and details of the individual, Joyce S. Macaraig, an aspiring Software Developer and Photographer.</p>
+                </div>
+                <div class="project-card">
+                    <figure><img src="calculator.png" alt="Calculator"></figure>
+                    <h3>Calculator</h3>
+                    <a href="https://jycmcrg.github.io/IPT101-Calculator-App/" class="download" download>>>> Calculator <<<</a>
+                    <p>The visual representation shows a Basic Calculator Interface with numeric buttons, operational buttons, and function buttons.</p>
+                </div>
+                <div class="project-card">
+                    <figure><img src="game.png" alt="Rock Paper Scissor Game"></figure>
+                    <h3>Rock Paper Scissor Game</h3>
+                    <a href="https://jycmcrg.github.io/Rock-Paper-Scissor/" class="download" download>>>> Rock Paper Scissor Game <<<</a>
+                    <p>This is a Rock, Paper, Scissors Game. The visual interface displays options for the player to pick Rock, Paper, or Scissors and shows the enemy's pick.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTACT ME SECTION -->
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <div class="contact-header">
+                <h1>CONTACT</h1>
+            </div>
+            <form class="contact-form" action="mailto:youremail@example.com">  
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email Address" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="contact-info">
+            <h2>CONTACT INFO:</h2>
+            <div><i class="fa fa-facebook-official" aria-hidden="true"></i><a href="https://www.facebook.com/joyce28macaraig">Joyce Macaraig</a></div>
+            <div><i class="fa fa-instagram" aria-hidden="true"></i><a href="https://www.instagram.com/jycmcrg">jycmcrg</a></div>
+            <div><i class="fa fa-twitter-square" aria-hidden="true"></i><a href="https://x.com/itsmejyc28">itsmejyc28</a></div>
+            <div><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:joyce28macaraig@gmail.com">joyce28macaraig@gmail.com</a></div>
+            <div><i class="fa fa-github-square" aria-hidden="true"></i><a href="https://github.com/jycmcrg">jycmcrg</a></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+     <section class="footer">
+        <p>Copyright 2024 | All Rights Reserved</p>
+        <p>Developed By: <a href="#">Joyce Macaraig</a></p>
+     </section>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
